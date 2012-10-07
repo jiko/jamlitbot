@@ -1,11 +1,16 @@
 import os
-
+import markov
 from flask import Flask
 app = Flask(__name__)
 
 @app.route('/')
 def hello():
-   return "Herro Word!"
+   filename='mycorpus.txt'
+   markovLength=2
+   if (markov.mapping=={}):
+	   markov.buildMapping(markov.wordlist(filename),markovLength)
+   sentence = markov.genSentence(markovLength)
+   return sentence
 
 if __name__ == '__main__':
    #Bind to PORT if defined, otherwise default to 5000.
