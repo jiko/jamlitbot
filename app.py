@@ -1,11 +1,10 @@
 import os
 import markov
 from bottle import route, run
-app = Flask(__name__)
 
 @route('/')
-@route('<r>')
-def hello(r):
+@route('/<r>')
+def hello(r="This"):
    filename='mycorpus.txt'
    markovLength=2
    if (markov.mapping=={}):
