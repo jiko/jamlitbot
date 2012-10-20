@@ -7,7 +7,7 @@ from bottle import route, run
 @route('/<r>')
 def hello(r="hf9831h1rgfewuifgasjkbzxg1e"):
    filename='mycorpus.txt'
-   markovLength=3
+   markovLength=2
    if (markov.mapping=={}):
 	   markov.buildMapping(markov.wordlist(filename),markovLength)
    sentence = markov.genSentence(markovLength, r.lower())
