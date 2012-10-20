@@ -72,9 +72,12 @@ def next (prevList):
 			retval = k
 	return retval
 
-def genSentence (markovLength):
+def genSentence (markovLength, root):
 	# Start with a random "starting word"
-	curr = random.choice(starts)
+	if root in starts:
+		curr = root
+	else:
+		curr = random.choice(starts)
 	sent = curr.capitalize ()
 	prevList = [curr]
 	# Keep adding words until we hit a period
